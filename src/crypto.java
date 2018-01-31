@@ -5,6 +5,27 @@ public class crypto {
         helloWhatToDo();
         System.out.println("Thanks for using Crypto, have a nice day!");
     }
+    
+    public static void helloWhatToDo(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Hello! Welcome to Crypto.");
+        String c = "Y";//assuming the program will be run at least once.
+        String a;
+        while(c.equalsIgnoreCase("Y")){
+            System.out.println("Do you want to encrypt something, or decrypt an information?");
+            System.out.print("(E)ncrypt or (D)ecrypt ");
+            a = input.next();
+            if(a.equalsIgnoreCase("E"))
+                initiateEncryption();
+            else if (a.equalsIgnoreCase("D"))
+                initiateDecryption();
+            else
+                printMessageError();
+            System.out.println("Would you like Crypto to perform another task? (Y)es or (N)o");
+            c = input.next();
+            while(!c.equalsIgnoreCase("Y") && !c.equalsIgnoreCase("N")) printMessageError();
+        }
+    }
 
     public static void printMessageError(){
         System.out.println("Sorry, wrong input.");
@@ -36,28 +57,7 @@ public class crypto {
         return result;
     }
 
-    public static void helloWhatToDo(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Hello! Welcome to Crypto.");
-        String c = "Y";//assuming the program will be run at least once.
-        String a;
-        while(c.equalsIgnoreCase("Y")){
-            System.out.println("Do you want to encrypt something, or decrypt an information?");
-            System.out.print("(E)ncrypt or (D)ecrypt ");
-            a = input.next();
-            if(a.equalsIgnoreCase("E"))
-                initiateEncryption();
-            else if (a.equalsIgnoreCase("D"))
-                initiateDecryption();
-            else
-                printMessageError();
-            System.out.println("Would you like Crypto to perform another task? (Y)es or (N)o");
-            c = input.next();
-            while(!c.equalsIgnoreCase("Y") && !c.equalsIgnoreCase("N")) printMessageError();
-        }
-    }
-
-    public static void initiateEncryption(){
+        public static void initiateEncryption(){
         Scanner input = new Scanner(System.in);
         int key = 0;
         int letters = 0;
